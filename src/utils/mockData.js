@@ -1,0 +1,60 @@
+export const products =[
+  {
+    id: 1,
+    name: "Organic Hass Avocados",
+    description: "Creamy, rich avocados grown without pesticides. Perfect for guacamole.",
+    price: 6.99,
+    oldPrice: 8.99, // Shows discount
+    category: "Vegetables",
+    rating: 4.8,
+    reviews: 234,
+    image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?q=80&w=1000&auto=format&fit=crop",
+    badge: "Best Seller",
+    stock: 45,
+    dietary: ["Vegan", "Keto"],
+  },
+  {
+    id: 2,
+    name: "Fresh Kale Bundle",
+    description: "Nutrient-rich curly kale, hand-picked from local organic farms.",
+    price: 3.49,
+    oldPrice: null,
+    category: "Vegetables",
+    rating: 4.5,
+    reviews: 189,
+    image: "https://images.unsplash.com/photo-1524175922658-c1bde59f635f?q=80&w=1000&auto=format&fit=crop",
+    badge: "New",
+    stock: 5, // Triggers "Low Stock" warning
+    dietary: ["Vegan"],
+  },
+  {
+    id: 3,
+    name: "Raw Organic Honey",
+    description: "Unfiltered, pure wildflower honey from sustainable apiaries.",
+    price: 12.99,
+    oldPrice: 15.00,
+    category: "Pantry",
+    rating: 4.9,
+    reviews: 412,
+    image: "https://images.unsplash.com/photo-1587049352847-81a56d773c1c?q=80&w=1000&auto=format&fit=crop",
+    badge: null,
+    stock: 120,
+    dietary: ["Gluten-Free"],
+  },
+  {
+    id: 4,
+    name: "Almond Milk",
+    description: "Unsweetened, dairy-free milk alternative.",
+    price: 5.49,
+    oldPrice: null,
+    category: "Dairy",
+    rating: 4.6,
+    reviews: 88,
+    image: "https://images.unsplash.com/photo-1568644396922-5c3bfae12521?q=80&w=1000&auto=format&fit=crop",
+    badge: "Out of Stock",
+    stock: 0,
+    dietary: ["Vegan", "Dairy-Free"],
+  }
+];
+
+export const categories =["All", "Fruits", "Vegetables", "Dairy", "Pantry", "Snacks"];
