@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Trash2, Plus, Minus, ShoppingBag } from 'lucide-react';
 import { useCartStore } from '../../store/useCartStore';
+import { Link } from 'react-router-dom';
 
 const CartDrawer = () => {
   const { cart, isCartOpen, toggleCart, updateQuantity, removeFromCart, cartTotal } = useCartStore();
@@ -93,9 +94,11 @@ const CartDrawer = () => {
                   <span className="text-2xl font-bold text-gray-900">${cartTotal().toFixed(2)}</span>
                 </div>
                 <p className="text-xs text-gray-500 mb-4">Taxes and shipping calculated at checkout.</p>
-                <button className="w-full bg-brandGreen text-white py-4 rounded-xl font-bold text-lg hover:bg-green-700 hover:shadow-lg transition-all transform hover:-translate-y-0.5">
-                  Proceed to Checkout
-                </button>
+                <Link to="/checkout" onClick={toggleCart} className="w-full block">
+                  <button className="w-full bg-brandGreen text-white py-4 rounded-xl font-bold text-lg hover:bg-green-700 hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Proceed to Checkout
+                  </button>
+                </Link>
               </div>
             )}
           </motion.div>

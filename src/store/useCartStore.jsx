@@ -8,27 +8,29 @@ export const useCartStore = create((set, get) => ({
   toggleCart: () => set((state) => ({ isCartOpen: !state.isCartOpen })),
 
   // Add item to cart
-  addToCart: (product) => {
+ // Change this: addToCart: (product) => {
+  addToCart: (product, qty = 1) => {
     set((state) => {
       const existingItem = state.cart.find((item) => item.id === product.id);
       
       if (existingItem) {
-        // If it exists, just increase the quantity
         return {
           cart: state.cart.map((item) =>
-            item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+            // Use the qty parameter instead of hardcoding + 1
+            item.id === product.id ? { ...item, quantity: item.quantity + qty } : item
           ),
-          isCartOpen: true, // Auto-open cart when adding
+          isCartOpen: true, 
         };
       }
-      // If it's new, add to array with quantity 1
       return { 
-        cart: [...state.cart, { ...product, quantity: 1 }],
+        // Use the qty parameter here too
+        cart:[...state.cart, { ...product, quantity: qty }],
         isCartOpen: true, 
       };
     });
   },
 
+  
   // Increase/Decrease quantity in the cart drawer
   updateQuantity: (id, amount) => {
     set((state) => ({
@@ -53,5 +55,10 @@ export const useCartStore = create((set, get) => ({
   cartTotal: () => {
     const { cart } = get();
     return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+  },
+
+  // Clear cart after successful checkout (NEW)
+  clearCart: () => {
+    set({ cart:[], isCartOpen: false });
   }
 }));
